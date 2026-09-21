@@ -77,12 +77,16 @@ button {
   display: none !important;
 }
 
+#scene-postcard {
+  display: flex;
+  flex-direction: column;
+  padding: max(16px, env(safe-area-inset-top)) 0 calc(128px + var(--safe-bottom));
+}
+
 .gift-stack {
-  position: absolute;
-  left: 50%;
-  top: 16%;
+  position: relative;
   width: min(86%, 360px);
-  transform: translateX(-50%);
+  margin: 0 auto;
 }
 
 .gift-idle {
@@ -497,13 +501,16 @@ button {
 /* Prizes */
 .prize-stage {
   position: absolute;
-  inset: 5% 0 14%;
+  top: max(8px, env(safe-area-inset-top));
+  left: 0;
+  right: 0;
+  bottom: calc(96px + var(--safe-bottom));
 }
 
 .prize {
   position: absolute;
-  width: 158px;
-  height: 158px;
+  width: clamp(120px, 18dvh, 158px);
+  height: clamp(120px, 18dvh, 158px);
   transform: translate(-50%, -50%) scale(0.4);
   opacity: 0;
   text-align: center;
@@ -516,8 +523,8 @@ button {
 
 .prize-stage[data-count="4"] .prize,
 .prize-stage[data-count="5"] .prize {
-  width: 140px;
-  height: 140px;
+  width: clamp(110px, 16dvh, 140px);
+  height: clamp(110px, 16dvh, 140px);
 }
 
 .prize.is-in {
@@ -633,7 +640,7 @@ button {
   z-index: 9;
   display: grid;
   place-items: center;
-  padding: 18px 18px 86px;
+  padding: max(10px, env(safe-area-inset-top)) 12px calc(70px + var(--safe-bottom));
   background: rgba(40, 120, 150, 0.22);
 }
 
@@ -643,31 +650,41 @@ button {
 
 .offer-panel {
   width: min(100%, 340px);
-  max-height: calc(100dvh - 120px);
-  overflow-y: auto;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 16px 36px rgba(20, 60, 80, 0.22);
-  padding: 18px 18px 20px;
+  padding: 12px 14px 14px;
   text-align: center;
   animation: offer-up 0.35s ease-out both;
 }
 
 .offer-kicker {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--teal-deep);
+  flex: 0 0 auto;
+}
+
+.offer-kicker:empty,
+.offer-kicker[hidden] {
+  display: none;
 }
 
 .offer-hero {
-  width: 112px;
-  height: 112px;
+  width: clamp(56px, 11dvh, 88px);
+  height: clamp(56px, 11dvh, 88px);
   object-fit: contain;
-  margin: 4px auto 8px;
+  margin: 0 auto 4px;
   display: block;
+  flex: 0 0 auto;
 }
 
 .offer-hero[hidden] {
@@ -675,19 +692,24 @@ button {
 }
 
 .offer-title {
-  margin: 0 0 8px;
-  font-size: 22px;
+  margin: 0 0 6px;
+  font-size: clamp(18px, 2.6dvh, 22px);
   font-weight: 800;
   color: #2a4a50;
+  flex: 0 0 auto;
 }
 
 .offer-extra {
   display: block;
-  width: 100%;
-  max-height: 220px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(168px, 22dvh);
   object-fit: contain;
-  margin: 4px auto 12px;
+  margin: 0 auto 8px;
   border-radius: 12px;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .offer-extra[hidden] {
@@ -697,11 +719,13 @@ button {
 .offer-body {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: clamp(8px, 1.8dvh, 16px);
   color: #5a686c;
-  font-size: 14px;
+  font-size: clamp(12px, 1.65dvh, 14px);
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.38;
+  flex: 0 1 auto;
+  min-height: 0;
 }
 
 .offer-body p {
@@ -712,9 +736,64 @@ button {
   display: grid;
   place-items: center;
   text-decoration: none;
-  margin: 14px auto 0;
+  margin: 10px auto 0;
   width: 100%;
   max-width: 240px;
+  height: 48px;
+  flex: 0 0 auto;
+}
+
+@media (max-height: 720px) {
+  .offer-panel {
+    padding: 10px 12px 12px;
+  }
+
+  .offer-hero {
+    width: 52px;
+    height: 52px;
+  }
+
+  .offer-extra {
+    max-height: min(120px, 18dvh);
+  }
+
+  .offer-body {
+    gap: 7px;
+    font-size: 12px;
+    line-height: 1.32;
+  }
+
+  .offer-cta {
+    height: 44px;
+    margin-top: 8px;
+  }
+
+  .postcard,
+  .postcard-photo {
+    min-height: 200px;
+  }
+
+  .gift-idle {
+    width: 48%;
+  }
+
+  .prize,
+  .prize-stage[data-count="4"] .prize,
+  .prize-stage[data-count="5"] .prize {
+    width: 124px;
+    height: 124px;
+  }
+
+  .prize-label {
+    font-size: 13px;
+    top: calc(100% + 10px);
+    max-width: 124px;
+  }
+
+  .qty {
+    font-size: 13px;
+    padding: 5px 10px 6px;
+  }
 }
 
 #app.is-offer .prize-stage,

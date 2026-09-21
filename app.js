@@ -145,26 +145,26 @@
   function prizePositions(count) {
     if (count <= 1) return [{ x: 50, y: 46 }];
     if (count === 2) return [
-      { x: 32, y: 32 },
-      { x: 68, y: 60 }
+      { x: 32, y: 24 },
+      { x: 68, y: 52 }
     ];
     if (count === 3) return [
-      { x: 32, y: 26 },
-      { x: 68, y: 50 },
-      { x: 32, y: 74 }
+      { x: 32, y: 18 },
+      { x: 68, y: 42 },
+      { x: 32, y: 66 }
     ];
     if (count === 4) return [
-      { x: 32, y: 20 },
-      { x: 68, y: 36 },
-      { x: 32, y: 54 },
-      { x: 68, y: 70 }
+      { x: 32, y: 14 },
+      { x: 68, y: 30 },
+      { x: 32, y: 48 },
+      { x: 68, y: 66 }
     ];
     return [
-      { x: 50, y: 18 },
-      { x: 28, y: 40 },
-      { x: 72, y: 40 },
-      { x: 28, y: 66 },
-      { x: 72, y: 66 }
+      { x: 50, y: 12 },
+      { x: 28, y: 36 },
+      { x: 72, y: 36 },
+      { x: 28, y: 62 },
+      { x: 72, y: 62 }
     ];
   }
 
@@ -223,6 +223,14 @@
   }
 
   function openOffer(card, prize) {
+    const kicker = document.getElementById("offer-kicker");
+    if (card.kicker) {
+      kicker.hidden = false;
+      kicker.textContent = card.kicker;
+    } else {
+      kicker.hidden = true;
+      kicker.textContent = "";
+    }
     document.getElementById("offer-title").textContent = card.title || prize.label;
     const hero = document.getElementById("offer-hero");
     const heroSrc = card.hero || prize.image;
