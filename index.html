@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>A gift from The Domain 7</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" data-scene="redeem">
+      <div class="sky" aria-hidden="true"></div>
+      <div class="spark-layer" aria-hidden="true"></div>
+
+      <section id="scene-redeem" class="scene">
+        <header class="shop-top">
+          <div class="shop-brand" aria-hidden="true">
+            <span class="shop-mark"></span>
+            <span class="shop-word" id="shop-brand">GO Gifts</span>
+          </div>
+          <button type="button" class="shop-menu" id="shop-menu" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </header>
+        <div class="shop-body">
+          <div class="shop-stats">
+            <div class="shop-stat">
+              <span class="shop-coin" aria-hidden="true"></span>
+              <div>
+                <strong id="shop-coins-top">∞</strong>
+                <span>PokéCoins</span>
+              </div>
+            </div>
+          </div>
+          <h1 class="shop-title" id="shop-title">Code Redemption</h1>
+          <h2 class="shop-trainer" id="shop-trainer"></h2>
+          <p class="shop-meta" id="shop-meta"></p>
+          <label class="shop-code-label" for="shop-code">Enter code</label>
+          <div class="shop-code-row">
+            <input id="shop-code" name="code" type="text" autocomplete="off" spellcheck="false" />
+            <button type="button" class="shop-apply" id="shop-apply">APPLY</button>
+          </div>
+          <div class="shop-note" id="shop-note"></div>
+        </div>
+      </section>
+
+      <section id="scene-postcard" class="scene" hidden>
+        <div class="gift-stack" id="gift-stack">
+          <div class="gift-idle" id="gift-idle">
+            <img id="gift-art" alt="Pokémon GO gift" />
+            <span class="idle-sparkle"></span>
+            <span class="idle-sparkle delay"></span>
+          </div>
+          <article class="postcard" id="postcard">
+            <div class="postcard-photo">
+              <img id="postcard-photo" alt="" />
+            </div>
+            <div class="postcard-copy">
+              <p class="greetings" id="postcard-greetings"></p>
+              <h1 class="place" id="postcard-place"></h1>
+              <p class="location" id="postcard-location"></p>
+              <button type="button" class="sender" id="postcard-sender"></button>
+            </div>
+            <img class="sticker" id="postcard-sticker" alt="" />
+          </article>
+        </div>
+
+        <div class="crew-pop" id="crew-pop" hidden></div>
+
+        <div class="bottom-ui" id="bottom-ui">
+          <div class="open-row">
+            <button type="button" class="btn-open" id="btn-open">OPEN</button>
+            <button type="button" class="btn-pin" id="btn-pin" aria-label="Save postcard">
+              <span class="pin-icon"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-opening" class="scene" hidden>
+        <img class="open-gift-art" id="open-gift-art" alt="" />
+        <div class="box-rig" id="box-rig">
+          <div class="wrap-cone"></div>
+          <div class="lid lid-l">
+            <span class="stripe"></span>
+          </div>
+          <div class="lid lid-r">
+            <span class="stripe"></span>
+            <span class="lid-tab"></span>
+          </div>
+          <div class="box-base">
+            <span class="knob"></span>
+          </div>
+          <div class="bloom"></div>
+        </div>
+      </section>
+
+      <section id="scene-prizes" class="scene" hidden>
+        <div class="prize-stage" id="prize-stage"></div>
+        <p class="prize-note" id="prize-note" hidden></p>
+      </section>
+
+      <div class="offer-overlay" id="offer-overlay" hidden>
+        <article class="offer-panel" id="offer-panel">
+          <p class="offer-kicker" id="offer-kicker"></p>
+          <img class="offer-hero" id="offer-hero" alt="" />
+          <h2 class="offer-title" id="offer-title"></h2>
+          <img class="offer-extra" id="offer-extra" alt="" hidden />
+          <div class="offer-body" id="offer-body"></div>
+          <a class="btn-open offer-cta" id="offer-cta" target="_blank" rel="noopener noreferrer">LEARN MORE</a>
+        </article>
+      </div>
+
+      <button type="button" class="btn-close" id="btn-close" aria-label="Close or replay">
+        <img src="assets/btn_close.png" alt="" />
+      </button>
+      <p class="prize-hint" id="prize-hint"></p>
+
+      <div class="toast" id="toast" hidden></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="gift.js?v=6"></script>
+    <script src="app.js?v=6"></script>
+  </body>
+</html>
