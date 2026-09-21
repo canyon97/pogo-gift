@@ -410,11 +410,6 @@
     }
   });
 
-  document.getElementById("shop-menu").addEventListener("click", () => {
-    play("select");
-    showToast("Settings unavailable");
-  });
-
   fillRedeem();
   fillPostcard();
   setScene(redeem ? "redeem" : "postcard");
