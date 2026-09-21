@@ -52,9 +52,9 @@ window.GIFT = {
     {
       id: "buddy",
       image: "assets/buddy_crown_icon.png",
-      label: "Best Ambassador",
+      label: "Awesome Ambassador",
       qty: "×1",
-      note: "We may be biased, but you're the best - you make the Domain POGO community special!"
+      note: "You make the Domain POGO community special!"
     },
     {
       id: "luck",
