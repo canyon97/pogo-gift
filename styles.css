@@ -504,7 +504,7 @@ button {
   top: max(8px, env(safe-area-inset-top));
   left: 0;
   right: 0;
-  bottom: calc(96px + var(--safe-bottom));
+  bottom: calc(64px + var(--safe-bottom));
 }
 
 .prize {
@@ -621,7 +621,7 @@ button {
 .prize-note {
   position: absolute;
   left: 50%;
-  bottom: calc(var(--safe-bottom) + 86px);
+  bottom: calc(var(--safe-bottom) + 70px);
   transform: translateX(-50%);
   width: min(82%, 320px);
   margin: 0;
@@ -629,9 +629,12 @@ button {
   color: #3d5a58;
   font-size: 14px;
   font-weight: 700;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.9);
   padding: 10px 14px;
   border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(20, 60, 80, 0.14);
+  z-index: 8;
+  pointer-events: none;
 }
 
 .offer-overlay {
