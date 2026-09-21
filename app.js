@@ -22,6 +22,7 @@
   audio.select.preload = "auto";
 
   const redeem = gift.redemption;
+  document.title = (redeem && redeem.brand) || "POGO Gifts";
   let scene = redeem ? "redeem" : "postcard";
   let toastTimer = 0;
   let openingTimers = [];
