@@ -21,7 +21,7 @@ window.GIFT = {
     greetings: "Greetings from",
     place: "Ambassador Acres",
     location: "Austin, TX, United States",
-    senderLabel: "Canyon, Justin, Kevin, Cristian, Alejandro, Chris and Ben",
+    senderLabel: "Chris, Ben, and Jasmine",
     senders: [
     ],
     sticker: "assets/sticker_flair_wooper.png",
