@@ -27,7 +27,6 @@ window.GIFT = {
     sticker: "assets/sticker_flair_wooper.png",
     gift: "assets/GiftBox.png"
   },
-  pinFileName: "postcard-ambassador-acres.png",
   prizes: [
     {
       id: "wooper",

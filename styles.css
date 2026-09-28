@@ -237,7 +237,8 @@ button {
 .open-row {
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  width: 100%;
 }
 
 .btn-open {
@@ -257,40 +258,6 @@ button {
 .btn-open.is-pressed {
   background: linear-gradient(90deg, var(--open-press-l), var(--open-press-r));
   transform: translateY(1px);
-}
-
-.btn-pin {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 3px solid #5fd3c0;
-  background: #f3fffb;
-  display: grid;
-  place-items: center;
-  padding: 0;
-}
-
-.btn-pin.is-pinned {
-  background: #fff8d6;
-  border-color: #e2c04a;
-}
-
-.pin-icon {
-  width: 22px;
-  height: 22px;
-  background: #3ec9b0;
-  -webkit-mask: url("assets/ic_pin_unpressed.png") center / contain no-repeat;
-  mask: url("assets/ic_pin_unpressed.png") center / contain no-repeat;
-}
-
-.btn-pin.is-pinned .pin-icon {
-  background: transparent;
-  -webkit-mask: none;
-  mask: none;
-  background-image: url("assets/ic_pin_pressed.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .btn-close {

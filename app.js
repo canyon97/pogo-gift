@@ -9,7 +9,6 @@
   const toastEl = document.getElementById("toast");
   const noteEl = document.getElementById("prize-note");
   const crewPop = document.getElementById("crew-pop");
-  const pinBtn = document.getElementById("btn-pin");
   const openBtn = document.getElementById("btn-open");
   const closeBtn = document.getElementById("btn-close");
   const offerOverlay = document.getElementById("offer-overlay");
@@ -292,7 +291,6 @@
 
   function goPostcard() {
     clearOpeningTimers();
-    pinBtn.classList.remove("is-pinned");
     app.classList.remove("is-redeeming");
     setScene("postcard");
   }
@@ -330,39 +328,11 @@
     renderPrizes();
   }
 
-  async function savePostcard() {
-    play("select");
-    pinBtn.classList.add("is-pinned");
-    const target = document.getElementById("gift-stack");
-    try {
-      if (typeof html2canvas !== "function") {
-        throw new Error("html2canvas missing");
-      }
-      const canvas = await html2canvas(target, {
-        backgroundColor: null,
-        scale: 2,
-        useCORS: true
-      });
-      const link = document.createElement("a");
-      link.download = gift.pinFileName || "postcard.png";
-      link.href = canvas.toDataURL("image/png");
-      link.click();
-      showToast("Postcard pinned. Your book is going to love this.");
-    } catch (err) {
-      showToast("Could not save the postcard in this browser. Screenshot it instead.");
-    }
-  }
-
   openBtn.addEventListener("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
     if (scene !== "postcard" || Date.now() < ignoreGiftOpenUntil) return;
     goOpening();
-  });
-
-  pinBtn.addEventListener("click", () => {
-    if (scene !== "postcard") return;
-    savePostcard();
   });
 
   document.getElementById("postcard-sender").addEventListener("click", () => {
